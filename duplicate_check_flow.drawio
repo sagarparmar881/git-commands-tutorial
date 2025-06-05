@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Duplicate Check Flow">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="16b45531-da51-485b-8315-46f182992447" value="Start" style="ellipse" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="50" y="40"/>
+        </mxCell>
+        <mxCell id="204f0421-0cd1-48f8-bb80-2719583f5b8a" value="Receive New Consumer Payload" style="rounded=1;fillColor=#dae8fc;" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="50" y="120"/>
+        </mxCell>
+        <mxCell id="94e16ad9-38e9-4666-9748-f7f52dd83a1d" value="Step A:
+Match first_name + last_name" style="rhombus;fillColor=#fff2cc;" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="50" y="200"/>
+        </mxCell>
+        <mxCell id="afac3e83-3142-4bf4-ad3a-43b56275443f" value="Step B:
+Match date_of_birth" style="rhombus;fillColor=#fff2cc;" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="50" y="300"/>
+        </mxCell>
+        <mxCell id="1d0e66c4-57db-4e4a-a14e-8a681a5a0b2a" value="Step C:
+Jaro-Winkler address match" style="rhombus;fillColor=#f8cecc;" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="50" y="400"/>
+        </mxCell>
+        <mxCell id="526334cb-c6bf-4401-b665-bbd114ecff12" value="Step Z:
+Create Consumer" style="rounded=1;fillColor=#d5e8d4;" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="250" y="480"/>
+        </mxCell>
+        <mxCell id="e447ff3a-35af-482e-9292-870f5211500c" value="Step X:
+Throw Duplicate Error" style="rounded=1;fillColor=#f8cecc;" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="-150" y="480"/>
+        </mxCell>
+        <mxCell id="1b045c91-d021-4e7c-9a0c-58b0723019d9" value="End" style="ellipse" parent="1" vertex="1">
+          <mxGeometry width="160" height="60" as_="geometry" x="50" y="560"/>
+        </mxCell>
+        <mxCell id="aff5438f-2980-4624-9ee7-49ca0988725f" value="" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="16b45531-da51-485b-8315-46f182992447" target="204f0421-0cd1-48f8-bb80-2719583f5b8a">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="a9edfba7-79ce-42cf-9cea-dee670385c28" value="" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="204f0421-0cd1-48f8-bb80-2719583f5b8a" target="94e16ad9-38e9-4666-9748-f7f52dd83a1d">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="40b36b17-bf3c-4b76-bfc6-79bc4117f49f" value="Match Found" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="94e16ad9-38e9-4666-9748-f7f52dd83a1d" target="afac3e83-3142-4bf4-ad3a-43b56275443f">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="dfe86107-cfbc-4b4a-8617-d19574709ca2" value="No Match" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="94e16ad9-38e9-4666-9748-f7f52dd83a1d" target="526334cb-c6bf-4401-b665-bbd114ecff12">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="60753d22-7eb8-42af-813b-ef7bdb5b983a" value="Match Found" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="afac3e83-3142-4bf4-ad3a-43b56275443f" target="1d0e66c4-57db-4e4a-a14e-8a681a5a0b2a">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="b5df6d25-d466-40a1-ba68-784e8677cc79" value="No Match" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="afac3e83-3142-4bf4-ad3a-43b56275443f" target="526334cb-c6bf-4401-b665-bbd114ecff12">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="2b47c7e8-4e97-497e-8183-1eb882cfe0cd" value="Similar ≥ threshold" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="1d0e66c4-57db-4e4a-a14e-8a681a5a0b2a" target="e447ff3a-35af-482e-9292-870f5211500c">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="db566bda-e3d4-48e2-9392-cf2a509bf5de" value="No Similar Match" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="1d0e66c4-57db-4e4a-a14e-8a681a5a0b2a" target="526334cb-c6bf-4401-b665-bbd114ecff12">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="6274cabe-9c84-4c2f-ad37-c5792816b4c2" value="" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="526334cb-c6bf-4401-b665-bbd114ecff12" target="1b045c91-d021-4e7c-9a0c-58b0723019d9">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+        <mxCell id="ae11980b-2460-427e-b3aa-2f9aac6fee4e" value="" style="edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="e447ff3a-35af-482e-9292-870f5211500c" target="1b045c91-d021-4e7c-9a0c-58b0723019d9">
+          <mxGeometry relative="1" as_="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
